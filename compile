@@ -1,0 +1,13 @@
+#!/bin/bash
+
+if [ $# -ge 1 ]
+then
+    case "$1" in
+        "-p") echo "aproksymacja prostej"; cd gauss_seidel; make; cd ..; make prosta; rm *.o; cd gauss_seidel; rm *.o libge.a;;
+        "-ab") echo "aproksymacja na bazie"; cd gauss_seidel; make; cd ..; make aprox; rm *.o; cd gauss_seidel; rm *.o libge.a;;
+        "-i") echo "aproksymacja interpolatora"; cd gauss_seidel; make; cd ..; make intrp; rm *.o; cd gauss_seidel; rm *.o libge.a;;
+        *) echo "Niepoprawna opcja, dostepne opcje: [-p, -ab, -i]"
+    esac
+else
+    echo "Nie podano opcji, dostepne opcje: [-p, -ab, -i]"
+fi
